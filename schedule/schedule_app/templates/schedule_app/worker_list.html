@@ -1,0 +1,9 @@
+{%extends 'schedule_app/base.html'%}
+{%block bodyblock%}
+  <h1>List of Workers</h1>
+  <ul>
+    {%for worker in workers%}
+    <li><a href="{{worker.id}}">{{worker.workerName}}</a></li>
+    {%endfor%}
+  </ul>
+{%endblock%}

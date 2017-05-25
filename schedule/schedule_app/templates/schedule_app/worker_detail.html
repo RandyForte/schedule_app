@@ -1,0 +1,28 @@
+{%extends 'schedule_app/base.html'%}
+{%block bodyblock%}
+  <h1>Worker Detail</h1>
+  <p>Worker Name: {{worker_detail.workerName}}</p>
+  <p>Availability Name: <strong>{{worker_detail.availability}}</strong></p>
+  <p>Jobs: {{worker_detail.job}}</p>
+  <br>
+  <p>Sunday Start Time: {{worker_detail.availability.sundayAvailabilityStartTime}}</p>
+  <p>Sunday End Time: {{worker_detail.availability.sundayAvailabilityEndTime}}</p>
+  <br>
+  <p>Monday Start Time: {{worker_detail.availability.mondayAvailabilityStartTime}}</p>
+  <p>Monday End Time: {{worker_detail.availability.mondayAvailabilityEndTime}}</p>
+  <br>
+  <p>Tuesday Start Time: {{worker_detail.availability.tuesdayAvailabilityStartTime}}</p>
+  <p>Tuesday End Time: {{worker_detail.availability.tuesdayAvailabilityEndTime}}</p>
+  <br>
+  <p>Wednesday Start Time: {{worker_detail.availability.wednesdayAvailabilityStartTime}}</p>
+  <p>Wednesday End Time: {{worker_detail.availability.wednesdayAvailabilityEndTime}}</p>
+  <br>
+  <p>Thursday Start Time: {{worker_detail.availability.thursdayAvailabilityStartTime}}</p>
+  <p>Thursday End Time: {{worker_detail.availability.thursdayAvailabilityEndTime}}</p>
+  <br>
+  <p>Friday Start Time: {{worker_detail.availability.fridayAvailabilityStartTime}}</p>
+  <p>Friday End Time: {{worker_detail.availability.fridayAvailabilityEndTime}}</p>
+  <br>
+  <p>Saterday Start Time: {{worker_detail.availability.saterdayAvailabilityStartTime}}</p>
+  <p>Saterday End Time: {{worker_detail.availability.saterdayAvailabilityEndTime}}</p>
+{%endblock%}

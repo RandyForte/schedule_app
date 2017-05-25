@@ -1,0 +1,12 @@
+{%extends 'schedule_app/base.html'%}
+{%block bodyblock%}
+    <div class="jumbotron">
+    {%for key,value in FINAL.items%}
+    <p>{{key}}{{value}}</p>
+    {%endfor%}
+    <form method="POST">
+      {%csrf_token%}
+      <input type="submit" value="Fill Shifts">
+    </form>
+    </div>
+{%endblock%}
