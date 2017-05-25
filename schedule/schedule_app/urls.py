@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^createshift/$',views.CreateShift.as_view(success_url="/createshift/"),name='createshift'),
     url(r'^createskill/$',views.CreateSkill.as_view(success_url="/createskill/"),name='createskill'),
     url(r'^worker_list_view/$',views.WorkerListView.as_view(),name='listwork'),
+    url(r'^shift_list_view/$',views.ShiftListView.as_view(),name='listshift'),
     url(r'^worker_list_view/(?P<pk>\d+)/$',views.WorkerDetail.as_view(),name="workerdetail"),
+    url(r'^shift_list_view/(?P<pk>\d+)/$',views.ShiftDetail.as_view(),name="shiftdetail"),
 ]

@@ -1,0 +1,9 @@
+{% extends "schedule_app/base.html" %}
+{% block bodyblock %}
+  <h1>Shift Details</h1>
+  <p>ShiftName: {{shift_detail.shiftName}}</p>
+  <p>Shift Job: {{shift_detail.job}}</p>
+  <p>Day: {{shift_detail.dayOfTheWeek}}</p>
+  <p>Start Time: {{shift_detail.shiftStartTime}}</p>
+  <p>End Time: {{shift_detail.shiftEndTime}}</p>
+{% endblock %}

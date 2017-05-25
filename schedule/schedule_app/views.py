@@ -74,9 +74,16 @@ class WorkerDetail(DetailView):
     context_object_name = 'worker_detail'
     model = models.Worker
     template_name = 'schedule_app/worker_detail.html'
+class ShiftDetail(DetailView):
+    context_object_name = 'shift_detail'
+    model = models.Shift
+    template_name = 'schedule_app/shift_detail.html'
 class WorkerListView(ListView):
     context_object_name = 'workers'
     model = models.Worker
+class ShiftListView(ListView):
+    context_object_name = 'shifts'
+    model = models.Shift
 class CreateJob(CreateView):
     fields = '__all__'
     model = models.Job

@@ -1,0 +1,7 @@
+{% extends "schedule_app/base.html" %}
+{% block bodyblock %}
+  <h1>List of Shifts</h1>
+  {% for shift in shifts %}
+    <li><a href="{{shift.id}}">{{shift.shiftName}}</a></li>
+  {% endfor %}
+{% endblock %}
