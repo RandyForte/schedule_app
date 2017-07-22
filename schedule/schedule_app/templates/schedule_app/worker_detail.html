@@ -3,7 +3,13 @@
   <h1>Worker Detail</h1>
   <p>Worker Name: {{worker_detail.workerName}}</p>
   <p>Availability Name: <strong>{{worker_detail.availability}}</strong></p>
-  <p>Jobs: {{worker_detail.job}}</p>
+  <p>Skills: </p>
+  <ul>
+    <p>{{worker_detail.skill}}</p>
+    {%for skill in worker_detail.skill%}
+    <li>{{skill}}</li>
+    {%endfor%}
+  </ul>
   <br>
   <p>Sunday Start Time: {{worker_detail.availability.sundayAvailabilityStartTime}}</p>
   <p>Sunday End Time: {{worker_detail.availability.sundayAvailabilityEndTime}}</p>

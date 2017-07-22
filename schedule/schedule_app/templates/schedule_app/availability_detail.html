@@ -1,0 +1,14 @@
+{% extends "schedule_app/base.html" %}
+{% block bodyblock %}
+  <a class="btn btn-warning" href="update">Update</a>
+  <h1>Availability Details</h1>
+  <p>AvailabilityName: {{availability_detail.availabilityName}}</p>
+  <p>Sunday: {{availability_detail.sundayAvailabilityStartTime}} - {{availability_detail.sundayAvailabilityEndTime}}</p>
+  <p>monday: {{availability_detail.mondayAvailabilityStartTime}} - {{availability_detail.mondayAvailabilityEndTime}}</p>
+  <p>tuesday: {{availability_detail.tuesdayAvailabilityStartTime}} - {{availability_detail.tuesdayAvailabilityEndTime}}</p>
+  <p>wednesday: {{availability_detail.wednesdayAvailabilityStartTime}} - {{availability_detail.wednesdayAvailabilityEndTime}}</p>
+  <p>thursday: {{availability_detail.thursdayAvailabilityStartTime}} - {{availability_detail.thursdayAvailabilityEndTime}}</p>
+  <p>thursday: {{availability_detail.thursdayAvailabilityStartTime}} - {{availability_detail.thursdayAvailabilityEndTime}}</p>
+  <p>friday: {{availability_detail.fridayAvailabilityStartTime}} - {{availability_detail.fridayAvailabilityEndTime}}</p>
+  <p>saterday: {{availability_detail.saterdayAvailabilityStartTime}} - {{availability_detail.saterdayAvailabilityEndTime}}</p>
+{% endblock %}

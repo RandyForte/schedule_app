@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import (TemplateView, View, CreateView, DetailView,
-ListView)
+ListView, UpdateView)
 from django.http import HttpResponse#testing only
 # Create your views here.
 from schedule_app import models
@@ -58,6 +58,60 @@ class IndexView(View):
                             worker_list.append(str(wrk))
                         else:
                             print(str(wrk) + " Can't work")
+                    elif day == 'monday':
+                        print(wrk.availability.mondayAvailabilityStartTime)
+                        print(wrk.availability.mondayAvailabilityEndTime)
+                        if wrk.availability.mondayAvailabilityStartTime<=timeStart and wrk.availability.mondayAvailabilityEndTime>=timeEnd:
+                            print(str(wrk) + " Can work")
+                            print(shift.id)
+                            worker_list.append(str(wrk))
+                        else:
+                            print(str(wrk) + " Can't work")
+                    elif day == 'tuesday':
+                        print(wrk.availability.tuesdayAvailabilityStartTime)
+                        print(wrk.availability.tuesdayAvailabilityEndTime)
+                        if wrk.availability.tuesdayAvailabilityStartTime<=timeStart and wrk.availability.tuesdayAvailabilityEndTime>=timeEnd:
+                            print(str(wrk) + " Can work")
+                            print(shift.id)
+                            worker_list.append(str(wrk))
+                        else:
+                            print(str(wrk) + " Can't work")
+                    elif day == 'wednesday':
+                        print(wrk.availability.wednesdayAvailabilityStartTime)
+                        print(wrk.availability.wednesdayAvailabilityEndTime)
+                        if wrk.availability.wednesdayAvailabilityStartTime<=timeStart and wrk.availability.wednesdayAvailabilityEndTime>=timeEnd:
+                            print(str(wrk) + " Can work")
+                            print(shift.id)
+                            worker_list.append(str(wrk))
+                        else:
+                            print(str(wrk) + " Can't work")
+                    elif day == 'thursday':
+                        print(wrk.availability.thursdayAvailabilityStartTime)
+                        print(wrk.availability.thursdayAvailabilityEndTime)
+                        if wrk.availability.thursdayAvailabilityStartTime<=timeStart and wrk.availability.thursdayAvailabilityEndTime>=timeEnd:
+                            print(str(wrk) + " Can work")
+                            print(shift.id)
+                            worker_list.append(str(wrk))
+                        else:
+                            print(str(wrk) + " Can't work")
+                    elif day == 'friday':
+                        print(wrk.availability.fridayAvailabilityStartTime)
+                        print(wrk.availability.fridayAvailabilityEndTime)
+                        if wrk.availability.fridayAvailabilityStartTime<=timeStart and wrk.availability.fridayAvailabilityEndTime>=timeEnd:
+                            print(str(wrk) + " Can work")
+                            print(shift.id)
+                            worker_list.append(str(wrk))
+                        else:
+                            print(str(wrk) + " Can't work")
+                    elif day == 'saterday':
+                        print(wrk.availability.saterdayAvailabilityStartTime)
+                        print(wrk.availability.saterdayAvailabilityEndTime)
+                        if wrk.availability.saterdayAvailabilityStartTime<=timeStart and wrk.availability.saterdayAvailabilityEndTime>=timeEnd:
+                            print(str(wrk) + " Can work")
+                            print(shift.id)
+                            worker_list.append(str(wrk))
+                        else:
+                            print(str(wrk) + " Can't work")
             FINAL[shift.shiftName] = worker_list
             worker_list = []
         print(FINAL)
@@ -74,16 +128,46 @@ class WorkerDetail(DetailView):
     context_object_name = 'worker_detail'
     model = models.Worker
     template_name = 'schedule_app/worker_detail.html'
+    # def skill(self,request,pk):
+        # return models.Skill.filter(Worker__pk=pk)
+        # skills = models.Skill.objects.all()
+        # skillList = []
+        # for skill in skills:
+        #     print(pk)
+        #     print("--------------")
+        #     print(skill.worker.pk,)
+        #     if skill.worker.pk == pk:
+        #         skillList.append(str(skill.job))
+        # return skillList
+    # def get_context_data(self,**kwargs):
+    #     context = super(WorkerDetail,self).get_context_data(**kwargs)
+    #     print("--------")
+    #     print(kwargs['object'].pk)
+    #     print("--------")
+    #     context['skills'] = str(models.Skill.objects.filter(id=kwargs['object'].pk))
+    #     return context
+    def get_context_data(self,**kwargs):
+        context = super(WorkerDetail,self).get_context_data(**kwargs)
+        context["skill"] = models.Skill.objects.filter(worker = "Mike the Snake")
+        print(context["skill"])
+        return context
 class ShiftDetail(DetailView):
     context_object_name = 'shift_detail'
     model = models.Shift
     template_name = 'schedule_app/shift_detail.html'
+class AvailabilityDetail(DetailView):
+    context_object_name = 'availability_detail'
+    model = models.Availability
+    template_name = 'schedule_app/availability_detail.html'
 class WorkerListView(ListView):
     context_object_name = 'workers'
     model = models.Worker
 class ShiftListView(ListView):
     context_object_name = 'shifts'
     model = models.Shift
+class AvailabilityListView(ListView):
+    context_object_name = 'availabilitys'
+    model = models.Availability
 class CreateJob(CreateView):
     fields = '__all__'
     model = models.Job
@@ -96,3 +180,7 @@ class CreateShift(CreateView):
     fields = '__all__'
     model = models.Shift
     template_name = 'schedule_app/create_form.html'
+class AvailabilityUpdate(UpdateView):
+    model = models.Availability
+    fields = '__all__'
+    template_name = 'schedule_app/availability_update.html'

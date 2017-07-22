@@ -1,0 +1,7 @@
+{% extends "schedule_app/base.html" %}
+{% block bodyblock %}
+  <h1>List of Availability</h1>
+  {% for availability in availabilitys %}
+    <li><a href="{{availability.id}}">{{availability.availabilityName}}</a></li>
+  {% endfor %}
+{% endblock %}
